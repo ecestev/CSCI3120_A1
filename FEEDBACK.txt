@@ -1,0 +1,41 @@
+Student CSID: ssampson
+Assignment 1 Feedback
+
+/*
+ *
+ * Please note that comments on any mark deductions are given below the mark breakdown.
+ *
+ */
+
+Code
+    +  Structure and Design of Web Server   15/15
+    +  Functionality (automated tests)       0/10
+    Test Suite 
+    + Quality (effectiveness of the tests)   3/5
+    + Number of tests                        5/5
+    Written Work 
+    + Question 1                             2/2
+    + Question 2                             1/1
+    + Question 3                             2/2
+    + Question 4                             1/1
+    + Question 5                             1/2
+    + Question 6                             1/2
+   Code Clarity                              5/5
+   -----------------------------------------------------------
+   Total                                    36/50
+
+
+Comments:
+
+
+Functionality - 10 points deducted (2 for each failed automated test)
+
+Quality - Submitted tests could cover a larger case range.
+
+Question 5 - What about resources (such as file descriptors) maintained for open files?
+             How are they impacted?
+
+Question 6 - What about the consequences for the client whose connection is not closed?
+
+
+

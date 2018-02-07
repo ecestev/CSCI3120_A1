@@ -1,0 +1,10 @@
+Title: Valid Request
+
+Author: Stephen Sampson B00568374
+
+Purpose: The purpose of this test is to see how the web server will react when the client
+sends a properly formed HTTP request for a file whose size does not exceed the limit of the
+sendfile() function.
+
+Expected Result: The web server should send a status message 'HTTP/1.1 200 OK' to the client
+folloed by the requested file. 

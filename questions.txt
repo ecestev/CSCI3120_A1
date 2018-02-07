@@ -1,0 +1,36 @@
+1) How could you implement your web server without using the network_wait() function?
+	
+		The web server could be implemented without using the network_wait() function by including the sys/select.h header and
+		calling the select function from the main.
+
+2) Why is the network_wait() function needed?
+
+		The network_wait() function is needed to block (put the program to sleep) until a client connects. Otherwise the main would
+		constantly be polling until a client connected which would be more resource intensive. 
+
+3) Is there a limit to the size of the file that can be sent? Why?
+
+		In my implementation there is a limit of 2,147,481,600 bytes that can be sent. This is a limitation of the senfile() 
+		function not a limit of the HTTP protocol iteself. In general, there is no limit to the size of the file that can be sent by 
+		HTTP however many browsers impose limitations (e.g Microsoft Internet Explorer has a 4GB limit for HTTP and FTP transfers). 
+
+		There is also a filesize limit of the HTTP request itself which is again browser specific. Some browsers limit the request to 
+		2KB and some allow up to 8KB. To be safe, we would therefore want to keep requests below 2KB to ensure compatibility with all 
+		popular browsers (IE, Chrome, Safari, Firefox, Opera, etc...).
+		
+4) What happens to all the waiting clients if the current client requests a large file (say a few gigabytes in size)?
+
+		Waiting client's requests will be processed in order after the request for the large file has been processed.
+			
+5) Why is it important to close the file after it is sent?
+		
+		Given the prototype: 		
+		int fclose(FILE *fp)
+	
+		Using fclose() flushes the stream pointed to by fp and closes the underlying file descriptor. It also ensures that access
+		to the file will not be blocked for any concurrent read/write operations. 
+
+6) Why is it important to close the connection after the response is sent?
+		
+		Closing the socket will deallocate it making it available for return by subsequent calls that allocate file descriptors. 
+		It will also remove any outstanding record locks owned by the process on the file associated with that descriptor.

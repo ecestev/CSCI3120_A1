@@ -1,0 +1,9 @@
+Title: Bad Request #2 Unrecognized HTTP Protocol
+
+Author: Stephen Sampson B00568374
+
+Purpose: The purpose of this test is to see how the web server will react when the client
+sends an HTTP request for a valid file using a valid method but an invalid protocol. 
+
+Expected Result: The web server should catch that the HTTP request is malformed and send the 
+status line "HTTP/1.1 Bad Request" to the client.

@@ -1,0 +1,25 @@
+NOTE: This test could not be implemented using a single .in and .out file so I am simply 
+explaining it. You can feel free to test it as well if you like. I have however included five
+other tests for grading so if you can not count this one that's cool.
+
+Title: Multiple Simultaneous Requests
+
+Author: Stephen Sampson B00568374
+
+Purpose: The purpose of this test is to see how the web server will react when multiple 
+clients send requests to the server at the same time - parcicularly when the file is busy
+sending a large file to another client. The files used in this test are
+	overlimitfile.txt (size 2,147,481,600)
+	requestedfile.txt (size 9,670)
+
+Expected Result: The web server should finish sending the large file to the client already 
+connected, close the socket, then process next client in line. This will continue until all 
+client's requests have been procesed.
+
+Actual Result: Exactly as expected. To test, I requested a file exactly equal to the senfile()
+limit on one terminal and then sent various HTTP requests to the server using other terminals.
+The server continued to send the large file to the client and once it was finished and had closed
+the socket began processing the other requests in the order they were received. 
+
+I found this test useful because I can compare it to how the multithreaded web server we create
+later will handle this scenario.

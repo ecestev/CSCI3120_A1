@@ -1,0 +1,10 @@
+Title: File not Found
+
+Author: Stephen Sampson B00568374
+
+Purpose: The purpose of this test is to see how the web server will react when the client
+sends a an HTTP request using a valid method and protocol for a filename that does not match
+any files in the directory specified in the request.
+
+Expected Result: The web server should send a status message 'HTTP/1.1 404 File Not Found'
+to the client. 

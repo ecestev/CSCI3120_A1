@@ -1,0 +1,10 @@
+Title: Bad Request #1 Unrecognized HTTP Method
+
+Author: Stephen Sampson B00568374
+
+Purpose: The purpose of this test is to see how the web server will react when the client
+sends an HTTP request for a valid file using a valid protocol but an invalid method o
+(anything other than 'GET'). For testing purposes, 'GET' has simply been misspelled as 'GETT'. 
+
+Expected Result: The web server should catch that the HTTP request is malformed and send the 
+status line "HTTP/1.1 Bad Request" to the client.
